@@ -1,0 +1,44 @@
+if SHIELD_CYGNUS_R
+
+config ZMK_KEYBOARD_NAME
+    default "Cygnus-Black"
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_BLE
+    default y
+
+config INPUT
+    default y
+
+config ZMK_POINTING
+    default y
+
+config SPI
+    default y
+
+config PMW3610
+    default y
+
+endif
+
+if SHIELD_CYGNUS_L
+
+config ZMK_KEYBOARD_NAME
+    default "Cygnus_L"
+
+config ZMK_SPLIT
+    default y
+
+endif
+
+if SHIELD_CYGNUS_R || SHIELD_CYGNUS_L
+
+config NFCT_PINS_AS_GPIOS
+    default y
+
+endif

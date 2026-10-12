@@ -1,0 +1,10 @@
+file_format: "1"
+id: Cygnus
+name: Cygnus
+type: shield
+url: https://github.com/Dist16384/KeyballBLE.git
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+  - pointing
+  - studio

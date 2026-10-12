@@ -1,0 +1,5 @@
+config SHIELD_CYGNUS_R
+    def_bool $(shields_list_contains,Cygnus_R)
+
+config SHIELD_CYGNUS_L
+    def_bool $(shields_list_contains,Cygnus_L)
