@@ -18,11 +18,11 @@
 #define BLE         8
 #define MAC_SYMBOL  9
 
-// Windows 日本語配列 (106) 向け記号: US キーコード → JIS OS で同じ文字になる HID
-// layout_shift_map_us_to_jis（kot149/zmk-layout-shift）と同等
-#define JP_YEN          0x89
-#define JP_PIPE         LS(0x89)
-#define JP_UNDERSCORE   LS(0x87)
+// Windows 日本語配列 (106): mac_symbol の US キーコードを、JIS OS で同じ記号になる ZMK 出力に差し替え
+// （JIS-US 対応表の「Output 列」＝ layout_shift_map_us_to_jis と同等。Studio 用に INT1/INT3 を使用）
+#define JP_YEN          INT3
+#define JP_PIPE         LS(INT3)
+#define JP_UNDERSCORE   LS(INT1)
 
 &mt {
     flavor = "balanced";
