@@ -53,8 +53,9 @@ Cygnus は **shakupan と同じ新世代スタック**（badjeff PMW3610 + ZMK P
 |---|---|---|
 | 0 | `win_base` | `win_layer` |
 | 1 | `mac_base` | `mac_layer` |
-| 2 | `num`（**OS 共用**） | `num_win` |
-| 3 | `win_symbol`（**JP リポ: Win JIS**）/ 本体は `symbol` 共用 | `num_mac` |
+| 2 | `win_num`（**JP: JIS-US 表**）/ 本体は `num` 共用 | `num_win` |
+| 3 | `win_symbol`（**JP: JIS-US 表**）/ 本体は `symbol` 共用 | `num_mac` |
+| 10 | `mac_num`（JP リポのみ） | — |
 | 4 | `win_mouse`（ユーザー定義） | `mouse_win`（shakupan 配列） |
 | 5 | `mac_mouse`（ユーザー定義・Gui 版） | `mouse_mac` |
 | 6 | `win_scroll`（≈ win_mouse） | `scroll_win` |
@@ -66,7 +67,7 @@ Cygnus は **shakupan と同じ新世代スタック**（badjeff PMW3610 + ZMK P
 
 要点:
 
-- Cygnus 本体は **NUM / SYMBOL を OS で分けない**（JP リポのみ `win_symbol` / `mac_symbol` を分離）
+- Cygnus 本体は **NUM / SYMBOL を OS で分けない**（JP リポのみ `win_num` / `mac_num` / `win_symbol` / `mac_symbol` を分離）
 - Cygnus に function 層は無い
 - BLE は **Win/Mac 共通の 1 層**（入口は `CARET` 長押し）
 

@@ -9,7 +9,7 @@
 
 #define WIN_BASE    0
 #define MAC_BASE    1
-#define NUM         2
+#define WIN_NUM     2
 #define WIN_SYMBOL  3
 #define WIN_MOUSE   4
 #define MAC_MOUSE   5
@@ -17,12 +17,11 @@
 #define MAC_SCROLL  7
 #define BLE         8
 #define MAC_SYMBOL  9
+#define MAC_NUM     10
 
-// Windows 日本語配列 (106): mac_symbol の US キーコードを、JIS OS で同じ記号になる ZMK 出力に差し替え
-// （JIS-US 対応表の「Output 列」＝ layout_shift_map_us_to_jis と同等。Studio 用に INT1/INT3 を使用）
-#define JP_YEN          INT3
-#define JP_PIPE         LS(INT3)
-#define JP_UNDERSCORE   LS(INT1)
+// Cygnus マニュアル「JIS-US 文字＆変換キー対応表」: ZMK は US Output → OS が JIS 列の文字になる
+// Shift 行: _=LS(MINUS) +=LS(EQUAL) :=LS(SEMICOLON) *=LS(SQT) "=LS(2) ^=LS(6) &=LS(7) (=LS(8) )=LS(9) $=LS(4)
+// 記号: ^=EQUAL ==MINUS [=RBKT ]=BSLH :=SQT ;=SEMI  ¥=INT3 |=LS(INT3)
 
 &mt {
     flavor = "balanced";
@@ -164,7 +163,7 @@
 &kp Q             &kp W         &kp E         &kp R               &kp T                                                              &kp Y             &kp U  &kp I      &kp O    &kp P
 &kp A             &kp S         &kp D         &kp F               &kp G                &mkp RCLK                      &lt BLE CARET  &kp H             &kp J  &kp K      &kp L    &lt WIN_SCROLL SEMICOLON
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V               &kp B                &mkp LCLK                      &kp AT_SIGN    &kp N             &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT NON_US_BACKSLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt NUM LANGUAGE_2  &lt WIN_MOUSE SPACE  &lt WIN_SCROLL LANGUAGE_1      &kp BACKSPACE  &lt WIN_SYMBOL ENTER                         &kp DEL
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt WIN_NUM LANGUAGE_2  &lt WIN_MOUSE SPACE  &lt WIN_SCROLL LANGUAGE_1      &kp BACKSPACE  &lt WIN_SYMBOL ENTER                         &kp DEL
             >;
 
             sensor-bindings =
@@ -179,7 +178,7 @@
 &kp Q             &kp W             &kp E         &kp R               &kp T                                                              &kp Y             &kp U  &kp I      &kp O    &kp P
 &kp A             &kp S             &kp D         &kp F               &kp G                &mkp RCLK                      &lt BLE CARET  &kp H             &kp J  &kp K      &kp L    &lt MAC_SCROLL MINUS
 &mt LEFT_SHIFT Z  &kp X             &kp C         &kp V               &kp B                &mkp LCLK                      &kp RS(COLON)  &kp N             &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
-&kp LEFT_GUI      &kp LEFT_CONTROL  &kp LEFT_ALT  &lt NUM LANGUAGE_2  &lt MAC_MOUSE SPACE  &lt MAC_SCROLL LANGUAGE_1      &kp BACKSPACE  &lt MAC_SYMBOL ENTER                         &kp DEL
+&kp LEFT_GUI      &kp LEFT_CONTROL  &kp LEFT_ALT  &lt MAC_NUM LANGUAGE_2  &lt MAC_MOUSE SPACE  &lt MAC_SCROLL LANGUAGE_1      &kp BACKSPACE  &lt MAC_SYMBOL ENTER                         &kp DEL
             >;
 
             sensor-bindings =
@@ -187,24 +186,24 @@
                 <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
-        // 2: NUM（OS 共用）
+        // 2: WIN_NUM（JIS-US 表。mac_num と同じ見た目の記号が Windows 日本語配列で出る Output）
 
-        num {
+        win_num {
             bindings = <
-&kp F1        &kp F2        &kp F3        &kp F4        &kp F5                            &kp SLASH     &kp EQUAL     &kp ASTERISK  &kp PLUS      &kp PERCENT
+&kp F1        &kp F2        &kp F3        &kp F4        &kp F5                            &kp QUESTION  &kp LS(EQUAL)  &kp LS(SINGLE_QUOTE)  &kp LS(EQUAL)  &kp LS(NUMBER_5)
 &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &trans      &trans  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0
-&kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &trans      &trans  &kp F11       &kp F12       &kp COMMA     &kp DOT       &kp DOLLAR
-&trans        &trans        &trans        &trans        &trans        &trans      &trans  &trans                                                  &kp PIPE
+&kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &trans      &trans  &kp F11       &kp F12       &kp COMMA     &kp DOT       &kp LS(NUMBER_4)
+&trans        &trans        &trans        &trans        &trans        &trans      &trans  &trans                                                  &kp LS(INT3)
             >;
         };
 
-        // 3: WIN_SYMBOL（mac_symbol と同じ記号意図を、JIS 106 OS 向けキーコードに変換）
+        // 3: WIN_SYMBOL（JIS-US 表に基づく Output。mac_symbol と同じ記号意図）
 
         win_symbol {
             bindings = <
-&kp QUESTION  &kp EXCLAMATION  &kp CARET          &kp JP_PIPE       &kp JP_YEN                                      &kp SLASH              &kp UNDERSCORE     &kp DOUBLE_QUOTES  &kp COLON         &kp PERCENT
-&kp HASH      &kp LEFT_BRACE   &kp AT_SIGN        &kp AMPERSAND     &kp PLUS              &trans         &kp EQUAL  &kp LEFT_ARROW         &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW   &kp JP_UNDERSCORE
-&kp LEFT_BRACKET  &kp LESS_THAN    &kp RIGHT_BRACE    &kp RIGHT_BRACKET  &kp ASTERISK          &kp SINGLE_QUOTE  &kp SEMI   &kp LEFT_PARENTHESIS  &kp BACKSLASH      &kp PIPE          &kp GREATER_THAN  &kp DOLLAR
+&kp QUESTION  &kp EXCLAMATION  &kp LS(NUMBER_6)  &kp LS(INT3)      &kp INT3                                        &kp SLASH              &kp MINUS          &kp LS(SINGLE_QUOTE)  &kp LS(EQUAL)     &kp LS(NUMBER_5)
+&kp HASH      &kp LEFT_BRACE   &kp LS(NUMBER_2)  &kp LS(NUMBER_7)  &kp PLUS              &trans         &kp EQUAL  &kp LEFT_ARROW         &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW   &kp LS(MINUS)
+&kp LEFT_BRACKET  &kp LESS_THAN    &kp LS(LEFT_BRACKET)  &kp RIGHT_BRACKET  &kp LS(NUMBER_8)          &kp LS(SEMICOLON)  &kp SEMICOLON  &kp LS(NUMBER_9)  &kp BACKSLASH      &kp LS(RIGHT_BRACKET)  &kp GREATER_THAN  &kp LS(NUMBER_4)
 &trans        &trans           &trans             &trans            &trans                &trans         &trans     &trans                                                                       &trans
             >;
         };
@@ -280,6 +279,17 @@
 &kp HASH      &kp GRAVE        &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp TILDE             &trans         &kp CARET  &kp LEFT_ARROW         &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW   &kp UNDER
 &kp AT_SIGN   &kp LESS_THAN    &kp LEFT_BRACE     &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp COLON      &kp SEMI   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp GREATER_THAN  &kp DOLLAR
 &trans        &trans           &trans             &trans            &trans                &trans         &trans     &trans                                                                       &trans
+            >;
+        };
+
+        // 10: MAC_NUM（US 配列。Cygnus 本体 num と同内容）
+
+        mac_num {
+            bindings = <
+&kp F1        &kp F2        &kp F3        &kp F4        &kp F5                            &kp SLASH     &kp EQUAL     &kp ASTERISK  &kp PLUS      &kp PERCENT
+&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &trans      &trans  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0
+&kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &trans      &trans  &kp F11       &kp F12       &kp COMMA     &kp DOT       &kp DOLLAR
+&trans        &trans        &trans        &trans        &trans        &trans      &trans  &trans                                                  &kp PIPE
             >;
         };
     };
