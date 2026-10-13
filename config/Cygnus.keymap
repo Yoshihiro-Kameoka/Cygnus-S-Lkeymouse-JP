@@ -10,12 +10,13 @@
 #define WIN_BASE    0
 #define MAC_BASE    1
 #define NUM         2
-#define SYMBOL      3
+#define WIN_SYMBOL  3
 #define WIN_MOUSE   4
 #define MAC_MOUSE   5
 #define WIN_SCROLL  6
 #define MAC_SCROLL  7
 #define BLE         8
+#define MAC_SYMBOL  9
 
 &mt {
     flavor = "balanced";
@@ -157,7 +158,7 @@
 &kp Q             &kp W         &kp E         &kp R               &kp T                                                              &kp Y             &kp U  &kp I      &kp O    &kp P
 &kp A             &kp S         &kp D         &kp F               &kp G                &mkp RCLK                      &lt BLE CARET  &kp H             &kp J  &kp K      &kp L    &lt WIN_SCROLL SEMICOLON
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V               &kp B                &mkp LCLK                      &kp AT_SIGN    &kp N             &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT NON_US_BACKSLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt NUM LANGUAGE_2  &lt WIN_MOUSE SPACE  &lt WIN_SCROLL LANGUAGE_1      &kp BACKSPACE  &lt SYMBOL ENTER                             &kp DEL
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt NUM LANGUAGE_2  &lt WIN_MOUSE SPACE  &lt WIN_SCROLL LANGUAGE_1      &kp BACKSPACE  &lt WIN_SYMBOL ENTER                         &kp DEL
             >;
 
             sensor-bindings =
@@ -172,7 +173,7 @@
 &kp Q             &kp W             &kp E         &kp R               &kp T                                                              &kp Y             &kp U  &kp I      &kp O    &kp P
 &kp A             &kp S             &kp D         &kp F               &kp G                &mkp RCLK                      &lt BLE CARET  &kp H             &kp J  &kp K      &kp L    &lt MAC_SCROLL MINUS
 &mt LEFT_SHIFT Z  &kp X             &kp C         &kp V               &kp B                &mkp LCLK                      &kp RS(COLON)  &kp N             &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
-&kp LEFT_GUI      &kp LEFT_CONTROL  &kp LEFT_ALT  &lt NUM LANGUAGE_2  &lt MAC_MOUSE SPACE  &lt MAC_SCROLL LANGUAGE_1      &kp BACKSPACE  &lt SYMBOL ENTER                             &kp DEL
+&kp LEFT_GUI      &kp LEFT_CONTROL  &kp LEFT_ALT  &lt NUM LANGUAGE_2  &lt MAC_MOUSE SPACE  &lt MAC_SCROLL LANGUAGE_1      &kp BACKSPACE  &lt MAC_SYMBOL ENTER                         &kp DEL
             >;
 
             sensor-bindings =
@@ -191,13 +192,13 @@
             >;
         };
 
-        // 3: SYMBOL（OS 共用）
+        // 3: WIN_SYMBOL（Windows + JIS 106。同じ物理位置で出る記号が US 版と異なるキーコード）
 
-        symbol {
+        win_symbol {
             bindings = <
 &kp QUESTION  &kp EXCLAMATION  &kp AMPERSAND      &kp PIPE          &kp BACKSLASH                                   &kp SLASH              &kp EQUAL          &kp ASTERISK     &kp PLUS          &kp PERCENT
-&kp HASH      &kp GRAVE        &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp TILDE             &trans         &kp CARET  &kp LEFT_ARROW         &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW   &kp UNDER
-&kp AT_SIGN   &kp LESS_THAN    &kp LEFT_BRACE     &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp COLON      &kp SEMI   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp GREATER_THAN  &kp DOLLAR
+&kp HASH      &kp GRAVE        &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp TILDE             &trans         &kp CARET  &kp LEFT_ARROW         &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW   &kp PLUS
+&kp GRAVE     &kp LESS_THAN    &kp LEFT_BRACE     &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp SEMI       &kp COLON  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp GREATER_THAN  &kp PIPE
 &trans        &trans           &trans             &trans            &trans                &trans         &trans     &trans                                                                       &trans
             >;
         };
@@ -262,6 +263,17 @@
 &trans  &trans        &trans        &trans        &trans     &trans      &studio_unlock  &trans   &trans    &trans    &trans        &trans
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kt KP_N4  &trans      &bootloader     &trans   &trans    &trans    &trans        &bt BT_CLR
 &trans  &trans        &trans        &trans        &trans     &trans      &trans          &trans                                     &bt BT_CLR_ALL
+            >;
+        };
+
+        // 9: MAC_SYMBOL（US 配列 Mac 向け。Cygnus 本体と同じ記号レイアウト）
+
+        mac_symbol {
+            bindings = <
+&kp QUESTION  &kp EXCLAMATION  &kp AMPERSAND      &kp PIPE          &kp BACKSLASH                                   &kp SLASH              &kp EQUAL          &kp ASTERISK     &kp PLUS          &kp PERCENT
+&kp HASH      &kp GRAVE        &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp TILDE             &trans         &kp CARET  &kp LEFT_ARROW         &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW   &kp UNDER
+&kp AT_SIGN   &kp LESS_THAN    &kp LEFT_BRACE     &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp COLON      &kp SEMI   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp GREATER_THAN  &kp DOLLAR
+&trans        &trans           &trans             &trans            &trans                &trans         &trans     &trans                                                                       &trans
             >;
         };
     };
