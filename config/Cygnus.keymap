@@ -18,6 +18,12 @@
 #define BLE         8
 #define MAC_SYMBOL  9
 
+// Windows 日本語配列 (106) 向け記号: US キーコード → JIS OS で同じ文字になる HID
+// layout_shift_map_us_to_jis（kot149/zmk-layout-shift）と同等
+#define JP_YEN          0x89
+#define JP_PIPE         LS(0x89)
+#define JP_UNDERSCORE   LS(0x87)
+
 &mt {
     flavor = "balanced";
     quick-tap-ms = <0>;
@@ -192,13 +198,13 @@
             >;
         };
 
-        // 3: WIN_SYMBOL（Windows + JIS 106。同じ物理位置で出る記号が US 版と異なるキーコード）
+        // 3: WIN_SYMBOL（mac_symbol と同じ記号意図を、JIS 106 OS 向けキーコードに変換）
 
         win_symbol {
             bindings = <
-&kp QUESTION  &kp EXCLAMATION  &kp AMPERSAND      &kp PIPE          &kp BACKSLASH                                   &kp SLASH              &kp EQUAL          &kp ASTERISK     &kp PLUS          &kp PERCENT
-&kp HASH      &kp GRAVE        &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp TILDE             &trans         &kp CARET  &kp LEFT_ARROW         &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW   &kp PLUS
-&kp GRAVE     &kp LESS_THAN    &kp LEFT_BRACE     &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp SEMI       &kp COLON  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp GREATER_THAN  &kp PIPE
+&kp QUESTION  &kp EXCLAMATION  &kp CARET          &kp JP_PIPE       &kp JP_YEN                                      &kp SLASH              &kp UNDERSCORE     &kp DOUBLE_QUOTES  &kp COLON         &kp PERCENT
+&kp HASH      &kp LEFT_BRACE   &kp AT_SIGN        &kp AMPERSAND     &kp PLUS              &trans         &kp EQUAL  &kp LEFT_ARROW         &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW   &kp JP_UNDERSCORE
+&kp LEFT_BRACKET  &kp LESS_THAN    &kp RIGHT_BRACE    &kp RIGHT_BRACKET  &kp ASTERISK          &kp SINGLE_QUOTE  &kp SEMI   &kp LEFT_PARENTHESIS  &kp BACKSLASH      &kp PIPE          &kp GREATER_THAN  &kp DOLLAR
 &trans        &trans           &trans             &trans            &trans                &trans         &trans     &trans                                                                       &trans
             >;
         };

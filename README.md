@@ -1,5 +1,5 @@
 無線キーボード Cygnus の ZMK ユーザー設定（**Windows 標準層 = JIS 106 配列**）。
 
 - ベースリポジトリ: [Cygnus-S-Lkeymouse](https://github.com/Yoshihiro-Kameoka/Cygnus-S-Lkeymouse)（`win_base` は US 配列）
-- 本リポジトリ: `win_base` / `win_symbol` を JIS 106 向け。`mac_base` は US 物理のまま、記号は `mac_symbol`（本体 `symbol` と同内容）。NUM などは OS 共用
+- 本リポジトリ: `win_base` は JIS 106 物理キー、`win_symbol` は本体 `symbol`（US キーコード）を [zmk-layout-shift の US→JIS 対応](https://github.com/kot149/zmk-layout-shift/blob/v2/dts/layout_shift_maps.dtsi) 相当で変換。`mac_*` は US 配列のまま
 - 使い方は Cygnus 付属マニュアルを参照
