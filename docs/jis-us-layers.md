@@ -66,6 +66,36 @@ mac: `/` `=` `*` `+` `%` → win: `QUESTION`（`?`）, `LS(MINUS)`（`=`）, `LS
 
 右下 `$` → `LS(NUMBER_4)`、`|` → `LS(INT3)`。
 
+## `win_base` 親指（マニュアル p.15）
+
+| タップ | マニュアル（JIS Win/Mac） | `win_base` |
+|--------|---------------------------|------------|
+| 左（NUM 長押し） | 変換 `INT2` | `INT2`（`LANGUAGE_2` ではない） |
+| 右（スクロール長押し） | 無変換 `INT1` | `INT1` |
+| 半角/全角 | `GRAVE` | 未割当（親指 3 キー構成のため。必要なら別キーへ） |
+
+`mac_base` は従来どおり `LANGUAGE_2` / `LANGUAGE_1`（US Mac のかな・英数）。
+
+## コンボ Z+X（キー位置 20–21）
+
+| 有効レイヤー | 出力 |
+|--------------|------|
+| 0 `win_base` | `LS(NUMBER_2)` → JIS で `"` |
+| 1 `mac_base` | `DOUBLE_QUOTES` → US Mac で `"` |
+
+## 見落としチェック（2026-03 監査）
+
+| 項目 | 状態 |
+|------|------|
+| L 右 `-` | `MINUS`（Mac 同様） |
+| NUM 右上 `/` | `SLASH`（`QUESTION` は `?` になり `/` にならない） |
+| `win_symbol` 各キー | `mac_symbol` と layout_shift / Shift 表で対応済み |
+| `win_num` 右下 `\|` / `$` | `LS(INT3)` / `LS(NUMBER_4)` |
+| ベース `@` / `\` | `AT_SIGN` / `NON_US_BACKSLASH`（Mac は `RS(COLON)` / `SLASH`） |
+| `~`（symbol の TILDE 枠） | win は `LS(EQUAL)`。JIS で `+` と化ける場合は実機で要調整 |
+| Studio | `LS(...)` / `INT3` は赤表示可。**空キーで保存しない** |
+| docs SVG / yaml | 旧 `symbol` 名のまま（図は未更新） |
+
 ## 実機確認
 
 表どおりでも **IME 状態**で結果が変わることがある。ずれるキーは **レイヤー名・キー位置・期待文字・実際の文字** をメモして調整する。
