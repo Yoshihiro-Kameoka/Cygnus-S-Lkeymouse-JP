@@ -19,9 +19,9 @@
 #define MAC_SYMBOL  9
 #define MAC_NUM     10
 
-// Cygnus マニュアル「JIS-US 文字＆変換キー対応表」: ZMK は US Output → OS が JIS 列の文字になる
-// Shift 行: _=LS(MINUS) +=LS(EQUAL) :=LS(SEMICOLON) *=LS(SQT) "=LS(2) ^=LS(6) &=LS(7) (=LS(8) )=LS(9) $=LS(4)
-// 記号: ^=EQUAL ==MINUS [=RBKT ]=BSLH :=SQT ;=SEMI  ¥=INT3 |=LS(INT3)
+// Cygnus マニュアル「JIS-US 文字＆変換キー対応表」(p.16): Studio の US Output → JIS OS の文字
+// win_* は mac_* と同位置で同じ文字を出すよう、表の Shift 行・記号行から Output を選ぶ
+// 例: &→LS(7) ^=EQUAL ==LS(MINUS) +=LS(EQUAL) *=LS(SQT) @=[ _=LS(MINUS) [=RBKT ]=BSLH |=LS(INT3)
 
 &mt {
     flavor = "balanced";
@@ -190,7 +190,7 @@
 
         win_num {
             bindings = <
-&kp F1        &kp F2        &kp F3        &kp F4        &kp F5                            &kp QUESTION  &kp LS(EQUAL)  &kp LS(SINGLE_QUOTE)  &kp LS(EQUAL)  &kp LS(NUMBER_5)
+&kp F1        &kp F2        &kp F3        &kp F4        &kp F5                            &kp QUESTION  &kp LS(MINUS)  &kp LS(SINGLE_QUOTE)  &kp LS(EQUAL)  &kp LS(NUMBER_5)
 &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &trans      &trans  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0
 &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &trans      &trans  &kp F11       &kp F12       &kp COMMA     &kp DOT       &kp LS(NUMBER_4)
 &trans        &trans        &trans        &trans        &trans        &trans      &trans  &trans                                                  &kp LS(INT3)
@@ -201,8 +201,8 @@
 
         win_symbol {
             bindings = <
-&kp QUESTION  &kp EXCLAMATION  &kp LS(NUMBER_6)  &kp LS(INT3)      &kp INT3                                        &kp SLASH              &kp MINUS          &kp LS(SINGLE_QUOTE)  &kp LS(EQUAL)     &kp LS(NUMBER_5)
-&kp HASH      &kp LEFT_BRACE   &kp LS(NUMBER_2)  &kp LS(NUMBER_7)  &kp PLUS              &trans         &kp EQUAL  &kp LEFT_ARROW         &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW   &kp LS(MINUS)
+&kp QUESTION  &kp EXCLAMATION  &kp LS(NUMBER_7)  &kp LS(INT3)      &kp NON_US_BACKSLASH                            &kp SLASH              &kp LS(MINUS)      &kp LS(SINGLE_QUOTE)  &kp LS(EQUAL)     &kp LS(NUMBER_5)
+&kp HASH      &kp LS(LEFT_BRACKET)  &kp LS(NUMBER_2)  &kp LS(NUMBER_7)  &kp LS(EQUAL)         &trans         &kp EQUAL  &kp LEFT_ARROW         &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW   &kp LS(MINUS)
 &kp LEFT_BRACKET  &kp LESS_THAN    &kp LS(LEFT_BRACKET)  &kp RIGHT_BRACKET  &kp LS(NUMBER_8)          &kp LS(SEMICOLON)  &kp SEMICOLON  &kp LS(NUMBER_9)  &kp BACKSLASH      &kp LS(RIGHT_BRACKET)  &kp GREATER_THAN  &kp LS(NUMBER_4)
 &trans        &trans           &trans             &trans            &trans                &trans         &trans     &trans                                                                       &trans
             >;
