@@ -161,7 +161,7 @@
         win_base {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R               &kp T                                                              &kp Y             &kp U  &kp I      &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F               &kp G                &mkp RCLK                      &lt BLE CARET  &kp H             &kp J  &kp K      &kp L    &lt WIN_SCROLL SEMICOLON
+&kp A             &kp S         &kp D         &kp F               &kp G                &mkp RCLK                      &lt BLE CARET  &kp H             &kp J  &kp K      &kp L    &lt WIN_SCROLL MINUS
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V               &kp B                &mkp LCLK                      &kp AT_SIGN    &kp N             &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT NON_US_BACKSLASH
 &kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt WIN_NUM LANGUAGE_2  &lt WIN_MOUSE SPACE  &lt WIN_SCROLL LANGUAGE_1      &kp BACKSPACE  &lt WIN_SYMBOL ENTER                         &kp DEL
             >;

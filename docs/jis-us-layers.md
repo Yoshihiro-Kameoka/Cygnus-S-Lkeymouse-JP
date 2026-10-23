@@ -13,6 +13,10 @@ JP リポでは **Mac 側は US Output のまま**（`mac_num` / `mac_symbol`）
 
 入口: `win_base` → `WIN_NUM` / `WIN_SYMBOL`、`mac_base` → `MAC_NUM` / `MAC_SYMBOL`。
 
+## `win_base`（L の右隣）
+
+Mac と同じ **タップで `-`**・長押しでスクロール層。JIS OS では Output **`MINUS`**（`SEMICOLON` だと `;` になるだけで `-` は出ない）。
+
 ## 変換の読み方（マニュアル Shift 表）
 
 「JIS で **この文字** を出したい」とき、表の **Shift + ○○（US 側のキー名）** に相当する ZMK Output を送る。
