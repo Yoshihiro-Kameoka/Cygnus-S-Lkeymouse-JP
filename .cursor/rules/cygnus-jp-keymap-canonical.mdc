@@ -1,0 +1,27 @@
+---
+description: Cygnus JP リポの win_* キーマップはユーザー実機確認版が正本
+globs: config/Cygnus.keymap
+alwaysApply: false
+---
+
+# Cygnus JP キーマップ正本
+
+**正解はユーザーが Keymap Editor / 実機で調整した `config/Cygnus.keymap`（`main` 最新、例: `f65c492` 以降）。**
+
+マニュアルの JIS-US 表や layout_shift から **理論上の置き換えを再計算して上書きしない**。ずれるときはユーザーに確認する。
+
+## 構成（変更時も維持）
+
+- `win_num` (2) / `win_symbol` (3) と `mac_num` (10) / `mac_symbol` (9) を分離
+- `win_base` → `WIN_NUM` / `WIN_SYMBOL`、`mac_base` → `MAC_NUM` / `MAC_SYMBOL`
+- Z+X コンボ: layer 0 → `LS(NUMBER_2)`、layer 1 → `DOUBLE_QUOTES`
+
+## ユーザー確認済みの要点（エージェント推測と違う例）
+
+- **win_base**: L 右 `MINUS`（`-`）。右下 Shift タップは **`SLASH`**（`NON_US_BACKSLASH` ではない）。親指タップは **`LANGUAGE_2` / `LANGUAGE_1`**（`INT2`/`INT1` ではない）
+- **win_num** 右上 `*`: **`LS(SEMICOLON)`**（`LS(SINGLE_QUOTE)` ではない）
+- **win_symbol**: 例）`&`→`LS(NUMBER_6)`、`\` 枠→`INT_YEN`、`^` 側→`EQUAL`、`*`→`LS(SEMICOLON)`、`_`→`LS(INTERNATIONAL_1)`、`{`→`LS(RIGHT_BRACKET)`、`|` 枠→`LS(BACKSLASH)`、中央付近 `SINGLE_QUOTE` / `SEMICOLON` の組み合わせは **現行 keymap をそのまま参照**
+
+## ZMK Studio
+
+赤表示キーを空で保存しない。不整合時は Git の UF2 を正とする。

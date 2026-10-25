@@ -1,8 +1,10 @@
 # JIS-US レイヤー（Cygnus マニュアル p.15–16）
 
+**正本: `config/Cygnus.keymap` の `win_*`（ユーザー実機確認済み）。** 本 doc の表は参考。AI が表だけから keymap を書き直さない。
+
 ZMK / Studio は **US 配列の Output** を送る。OS が **日本語 JIS 106** のとき、押下結果はマニュアル **「JIS Keyboard」列** になる。
 
-JP リポでは **Mac 側は US Output のまま**（`mac_num` / `mac_symbol`）、**Windows 側**（`win_num` / `win_symbol`）だけ、**同じ物理位置で Mac と同じ文字**が出るよう Output を差し替える。
+JP リポでは **Mac 側は US Output のまま**（`mac_num` / `mac_symbol`）、**Windows 側**（`win_num` / `win_symbol`）だけ差し替える。
 
 ## レイヤー
 
