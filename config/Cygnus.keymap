@@ -207,10 +207,10 @@
 
         win_symbol {
             bindings = <
-&kp QUESTION      &kp EXCLAMATION       &kp LS(LC(NUMBER_6))   &kp LS(INT3)       &kp INT_YEN                                             &kp SLASH         &kp LS(MINUS)   &kp LS(SINGLE_QUOTE)   &kp LS(SEMICOLON)  &kp LS(NUMBER_5)
-&kp HASH          &kp LS(LEFT_BRACKET)  &kp LS(NUMBER_2)       &kp LS(NUMBER_7)   &kp LS(EQUAL)     &trans                 &kp EQUAL      &kp LEFT_ARROW    &kp DOWN_ARROW  &kp UP_ARROW           &kp RIGHT_ARROW    &kp LS(MINUS)
-&kp LEFT_BRACKET  &kp LESS_THAN         &kp LS(RIGHT_BRACKET)  &kp RIGHT_BRACKET  &kp LS(NUMBER_8)  &kp LS(SEMICOLON)      &kp SEMICOLON  &kp LS(NUMBER_9)  &kp BACKSLASH   &kp LS(RIGHT_BRACKET)  &kp GREATER_THAN   &kp SLASH
-&trans            &trans                &trans                 &trans             &trans            &trans                 &trans         &trans                                                                      &trans
+&kp QUESTION      &kp EXCLAMATION       &kp LS(LC(NUMBER_6))   &kp LS(INT3)       &kp INT_YEN                                             &kp SLASH         &kp LS(MINUS)   &kp LS(SINGLE_QUOTE)  &kp LS(SEMICOLON)  &kp LS(NUMBER_5)
+&kp HASH          &kp LS(LEFT_BRACKET)  &kp LS(NUMBER_2)       &kp LS(NUMBER_7)   &kp LS(EQUAL)     &trans                 &kp EQUAL      &kp LEFT_ARROW    &kp DOWN_ARROW  &kp UP_ARROW          &kp RIGHT_ARROW    &kp LS(MINUS)
+&kp LEFT_BRACKET  &kp LESS_THAN         &kp LS(RIGHT_BRACKET)  &kp RIGHT_BRACKET  &kp LS(NUMBER_8)  &kp LS(SEMICOLON)      &kp SEMICOLON  &kp LS(NUMBER_9)  &kp BACKSLASH   &kp LEFT_BRACKET      &kp GREATER_THAN   &kp SLASH
+&trans            &trans                &trans                 &trans             &trans            &trans                 &trans         &trans                                                                     &trans
             >;
         };
 
